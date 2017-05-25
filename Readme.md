@@ -1,7 +1,7 @@
 # Личный проект «Пиксель хантер» [![Build status][travis-image]][travis-url]
 
 * Студент: [Владислав Ермолин](https://up.htmlacademy.ru/ecmascript/2/user/123103).
-* Наставник: `Неизвестно`.
+* Наставник: [Евгений Лепёшкин](https://htmlacademy.ru/profile/id144641).
 
 ---
 
