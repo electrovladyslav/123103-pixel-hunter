@@ -1,5 +1,5 @@
 (function () {
-  'use strict';
+  // 'use strict';
 
   const templates = document.querySelectorAll(`template`);
   const main = document.querySelector(`main`);
@@ -24,7 +24,7 @@
   switchScreen(0);
 
   /**
-   * Hadler for keyboards events
+   * Handler for keyboards events
    * @param event
    */
 
