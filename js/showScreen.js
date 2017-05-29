@@ -7,8 +7,8 @@ const showScreen = (element) => {
   main.appendChild(element);
 
   // а через клонирование не работает подписка на события
-  /* const clone = element.cloneNode(true);
-  container.appendChild(clone);*/
+  // const clone = element.cloneNode(true);
+  // main.appendChild(clone);
 
   /* elements.forEach((item) => {
     const clone = document.importNode(item, true);
