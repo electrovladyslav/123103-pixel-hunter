@@ -1,19 +1,13 @@
 const main = document.querySelector(`main`);
 
+/**
+ * Clear element .main on page and render input element inside
+ *
+ * @param {Node} element DOM node to render
+ */
 const showScreen = (element) => {
-
   main.innerHTML = ``;
-
   main.appendChild(element);
-
-  // а через клонирование не работает подписка на события
-  // const clone = element.cloneNode(true);
-  // main.appendChild(clone);
-
-  /* elements.forEach((item) => {
-    const clone = document.importNode(item, true);
-    container.appendChild(clone);
-  });*/
 };
 
 export default showScreen;
