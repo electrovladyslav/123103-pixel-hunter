@@ -1,9 +1,8 @@
 import makeElementFromTemplate from './makeElementFromTmeplate.js';
-import showScreen from './showScreen';
+import addBackToStartScreenLogic from './addBackToStartScreenLogic';
 
 import header from './header';
 import footer from './footer';
-import startModule from './module-2-greeting';
 
 const moduleElement = () => {
   let node = makeElementFromTemplate(`${header}
@@ -109,10 +108,7 @@ const moduleElement = () => {
     </div>
     ${footer}`);
 
-  const backTrigger = node.querySelector(`.back`);
-  backTrigger.addEventListener(`click`, () => {
-    showScreen(startModule());
-  });
+  addBackToStartScreenLogic(node);
 
   return node;
 };

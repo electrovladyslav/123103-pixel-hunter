@@ -1,9 +1,9 @@
 import makeElementFromTemplate from './makeElementFromTmeplate.js';
 import showScreen from './showScreen';
+import addBackToStartScreenLogic from './addBackToStartScreenLogic';
 
 import header from './header';
 import footer from './footer';
-import startModule from './module-2-greeting';
 import nextModule from './module-5-game-2';
 
 const moduleElement = () => {
@@ -62,11 +62,7 @@ const moduleElement = () => {
     });
   });
 
-
-  const backTrigger = node.querySelector(`.back`);
-  backTrigger.addEventListener(`click`, () => {
-    showScreen(startModule());
-  });
+  addBackToStartScreenLogic(node);
 
   return node;
 };

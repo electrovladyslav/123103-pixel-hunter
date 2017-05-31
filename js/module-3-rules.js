@@ -1,10 +1,10 @@
 import makeElementFromTemplate from './makeElementFromTmeplate.js';
 import showScreen from './showScreen';
+import addBackToStartScreenLogic from './addBackToStartScreenLogic';
 
 import header from './header';
 import footer from './footer';
 import nextModule from './module-4-game-1';
-import startModule from './module-2-greeting';
 
 const moduleElement = () => {
   let node = makeElementFromTemplate(`${header}
@@ -31,17 +31,14 @@ const moduleElement = () => {
     showScreen(nextModule());
   });
 
-  const backTrigger = node.querySelector(`.back`);
-  backTrigger.addEventListener(`click`, () => {
-    showScreen(startModule());
-  });
-
   const rulesInput = node.querySelector(`.rules__input`);
-  const rulesButton = node.querySelector(`.rules__button`);
 
+  const rulesButton = node.querySelector(`.rules__button`);
   rulesInput.addEventListener(`input`, () => {
     rulesButton.disabled = !(rulesInput.value);
   });
+
+  addBackToStartScreenLogic(node);
 
   return node;
 };
