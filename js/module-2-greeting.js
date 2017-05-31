@@ -5,7 +5,8 @@ import footer from './footer';
 import nextModule from './module-3-rules';
 
 
-const moduleElement = makeElementFromTemplate(`<div class="greeting central--blur">
+const moduleElement = () => {
+  let node = makeElementFromTemplate(`<div class="greeting central--blur">
     <div class="greeting__logo"><img src="img/logo_big.png" width="201" height="89" alt="Pixel Hunter"></div>
     <h1 class="greeting__asterisk">*</h1>
     <div class="greeting__challenge">
@@ -20,9 +21,12 @@ const moduleElement = makeElementFromTemplate(`<div class="greeting central--blu
   </div>
   ${footer}`);
 
-const nextTrigger = moduleElement.querySelector(`.greeting__continue`);
-nextTrigger.addEventListener(`click`, () => {
-  showScreen(nextModule); // , footer
-});
+  const nextTrigger = node.querySelector(`.greeting__continue`);
+  nextTrigger.addEventListener(`click`, () => {
+    showScreen(nextModule());
+  });
+
+  return node;
+};
 
 export default moduleElement;

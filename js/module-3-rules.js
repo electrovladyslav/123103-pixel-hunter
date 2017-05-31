@@ -6,7 +6,8 @@ import footer from './footer';
 import nextModule from './module-4-game-1';
 import startModule from './module-2-greeting';
 
-const moduleElement = makeElementFromTemplate(`${header}
+const moduleElement = () => {
+  let node = makeElementFromTemplate(`${header}
   <div class="rules">
     <h1 class="rules__title">Правила</h1>
     <p class="rules__description">Угадай 10 раз для каждого изображения фото <img
@@ -25,25 +26,24 @@ const moduleElement = makeElementFromTemplate(`${header}
   </div>
   ${footer}`);
 
-const nextTrigger = moduleElement.querySelector(`.rules__form`);
-nextTrigger.addEventListener(`submit`, () => {
-  showScreen(nextModule);
-});
+  const nextTrigger = node.querySelector(`.rules__form`);
+  nextTrigger.addEventListener(`submit`, () => {
+    showScreen(nextModule());
+  });
 
-const backTrigger = moduleElement.querySelector(`.back`);
-backTrigger.addEventListener(`click`, () => {
-  showScreen(startModule);
-});
+  const backTrigger = node.querySelector(`.back`);
+  backTrigger.addEventListener(`click`, () => {
+    showScreen(startModule());
+  });
 
-const rulesInput = moduleElement.querySelector(`.rules__input`);
-const rulesButton = moduleElement.querySelector(`.rules__button`);
+  const rulesInput = node.querySelector(`.rules__input`);
+  const rulesButton = node.querySelector(`.rules__button`);
 
-rulesInput.addEventListener(`input`, () => {
-  if (rulesInput.value) {
-    rulesButton.disabled = false;
-  } else {
-    rulesButton.disabled = true;
-  }
-});
+  rulesInput.addEventListener(`input`, () => {
+    rulesButton.disabled = !(rulesInput.value);
+  });
+
+  return node;
+};
 
 export default moduleElement;

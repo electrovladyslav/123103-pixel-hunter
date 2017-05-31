@@ -6,16 +6,18 @@ import nextModule from './module-2-greeting';
 
 const moduleElement = makeElementFromTemplate(`<div id="main" class="central__content">
     <div id="intro" class="intro">
-      <h1 class="intro__asterisk">*</h1>
-      <p class="intro__motto"><sup>*</sup> Это не фото. Это рисунок маслом нидерландского художника-фотореалиста Tjalf Sparnaay.</p>
+    <h1 class="intro__asterisk">*</h1>
+    <p class="intro__motto"><sup>*</sup> Это не фото. Это рисунок маслом нидерландского художника-фотореалиста Tjalf Sparnaay.</p>
     </div>
-  </div>
-  ${footer}`);
+    </div>
+    ${footer}`
+  );
 
 const nextTrigger = moduleElement.querySelector(`.intro__asterisk`);
 
 nextTrigger.addEventListener(`click`, () => {
-  showScreen(nextModule);
+  showScreen(nextModule());
 });
+
 
 export default moduleElement;
