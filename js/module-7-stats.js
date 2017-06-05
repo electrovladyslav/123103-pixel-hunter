@@ -1,11 +1,7 @@
 import makeElementFromTemplate from './makeElementFromTmeplate.js';
-import addBackToStartScreenLogic from './addBackToStartScreenLogic';
-
-import header from './header';
-import footer from './footer';
 
 const moduleElement = () => {
-  let node = makeElementFromTemplate(`${header}
+  let node = makeElementFromTemplate(`
     <div class="result">
       <h1>Победа!</h1>
       <table class="result__table">
@@ -106,9 +102,8 @@ const moduleElement = () => {
         </tr>
       </table>
     </div>
-    ${footer}`);
+    `);
 
-  addBackToStartScreenLogic(node);
 
   return node;
 };

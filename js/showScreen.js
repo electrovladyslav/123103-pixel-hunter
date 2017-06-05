@@ -1,17 +1,16 @@
-const main = document.querySelector(`main`);
-
 /**
  * Clear element .main on page and render input element inside
  *
+ * @param {Node} container element to which will be insert
  * @param {Node} element DOM node to render
  * @param {Node} restElements other elements to insert
  */
-const showScreen = (element, ...restElements) => {
-  main.innerHTML = ``;
-  main.appendChild(element);
+const showScreen = (container, element, ...restElements) => {
+  container.innerHTML = ``;
+  container.appendChild(element);
   if (restElements.length) {
     restElements.forEach((item) => {
-      main.appendChild(item);
+      container.appendChild(item);
     });
   }
 };

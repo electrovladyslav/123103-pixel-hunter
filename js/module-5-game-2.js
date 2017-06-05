@@ -1,13 +1,9 @@
 import makeElementFromTemplate from './makeElementFromTmeplate.js';
 import showScreen from './showScreen';
-import addBackToStartScreenLogic from './addBackToStartScreenLogic';
-
-import header from './header';
-import footer from './footer';
 import nextModule from './module-6-game-3';
 
 const moduleElement = () => {
-  let node = makeElementFromTemplate(`${header}
+  let node = makeElementFromTemplate(`
     <div class="game">
       <p class="game__task">Угадай, фото или рисунок?</p>
       <form class="game__content  game__content--wide">
@@ -38,17 +34,16 @@ const moduleElement = () => {
         </ul>
       </div>
     </div>
-    ${footer}`);
+    `);
 
+  const main = document.querySelector(`main`);
   const radio = node.querySelectorAll(`input`);
-
   [...radio].forEach((item) => {
     item.onchange = () => {
-      showScreen(nextModule());
+      showScreen(main, nextModule());
     };
   });
 
-  addBackToStartScreenLogic(node);
 
   return node;
 };

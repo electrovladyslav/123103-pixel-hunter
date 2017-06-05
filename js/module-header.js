@@ -1,6 +1,9 @@
 import makeElementFromTemplate from './makeElementFromTmeplate.js';
+import startModule from './module-2-greeting';
+import showScreen from './showScreen';
 
-const moduleHeader = makeElementFromTemplate(`<header class="header">
+const moduleHeader = () => {
+  let node = makeElementFromTemplate(`<header class="header">
   <div class="header__back">
       <span class="back">
         <img src="img/arrow_left.svg" width="45" height="45" alt="Back">
@@ -8,5 +11,19 @@ const moduleHeader = makeElementFromTemplate(`<header class="header">
       </span>
     </div>
   </header>`);
+
+  const central = document.querySelector(`.central`);
+  const backTrigger = node.querySelector(`.back`);
+  backTrigger.addEventListener(`click`, () => {
+    showScreen(central, startModule());
+  });
+
+  // const main = document.querySelector(`main`);
+  // main.appendChild(node);
+  // main.insertAdjacentHTML(`beforebegin`, node);
+
+  return node;
+};
+
 
 export default moduleHeader;

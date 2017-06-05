@@ -1,4 +1,5 @@
 import makeElementFromTemplate from './makeElementFromTmeplate.js';
+
 const moduleFooterElement = makeElementFromTemplate(`<footer class="footer">
     <a href="https://htmlacademy.ru" class="social-link social-link--academy">HTML Academy</a>
     <span class="footer__made-in">Сделано в <a href="https://htmlacademy.ru" class="footer__link">HTML Academy</a> &copy; 2016</span>

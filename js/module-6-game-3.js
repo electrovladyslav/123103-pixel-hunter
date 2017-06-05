@@ -1,13 +1,9 @@
 import makeElementFromTemplate from './makeElementFromTmeplate.js';
 import showScreen from './showScreen';
-import addBackToStartScreenLogic from './addBackToStartScreenLogic';
-
-import header from './header';
-import footer from './footer';
 import nextModule from './module-7-stats';
 
 const moduleElement = () => {
-  let node = makeElementFromTemplate(`${header}
+  let node = makeElementFromTemplate(`
     <div class="game">
       <p class="game__task">Найдите рисунок среди изображений</p>
       <form class="game__content  game__content--triple">
@@ -36,18 +32,16 @@ const moduleElement = () => {
         </ul>
       </div>
     </div>
-    ${footer}`);
+    `);
 
-
+  const main = document.querySelector(`main`);
   const nextTrigger = node.querySelectorAll(`.game__option`);
 
   [...nextTrigger].forEach((item) => {
     item.addEventListener(`click`, () => {
-      showScreen(nextModule());
+      showScreen(main, nextModule());
     });
   });
-
-  addBackToStartScreenLogic(node);
 
   return node;
 };

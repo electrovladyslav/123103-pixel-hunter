@@ -21,9 +21,10 @@ const moduleElement = () => {
   </div>
   ${footer}`);
 
+  const main = document.querySelector(`main`);
   const nextTrigger = node.querySelector(`.greeting__continue`);
   nextTrigger.addEventListener(`click`, () => {
-    showScreen(nextModule());
+    showScreen(main, nextModule());
   });
 
   return node;

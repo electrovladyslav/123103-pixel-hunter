@@ -7,7 +7,32 @@
 const gameLevels = [
   {
     task: `Угадайте для каждого изображения фото или рисунок?`,
-    optionsQuantity: 2,
+    options: [
+      {
+        name: `question1`,
+        imgSrc: `http://placehold.it/468x458`,
+        answers: {
+          photo: {
+            checked: false
+          },
+          paint: {
+            checked: false
+          }
+        }
+      },
+      {
+        name: `question2`,
+        imgSrc: `http://placehold.it/468x458`,
+        answers: {
+          photo: {
+            checked: false
+          },
+          paint: {
+            checked: false
+          }
+        }
+      }
+    ],
     optionsSrc: [
       `http://placehold.it/468x458`,
       `http://placehold.it/468x458`
