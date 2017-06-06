@@ -1,5 +1,6 @@
 import makeElementFromTemplate from './makeElementFromTmeplate.js';
 import startModule from './module-2-greeting';
+import moduleFooter from './module-footer';
 import showScreen from './showScreen';
 
 const moduleHeader = () => {
@@ -15,12 +16,8 @@ const moduleHeader = () => {
   const central = document.querySelector(`.central`);
   const backTrigger = node.querySelector(`.back`);
   backTrigger.addEventListener(`click`, () => {
-    showScreen(central, startModule());
+    showScreen(central, startModule(), moduleFooter());
   });
-
-  // const main = document.querySelector(`main`);
-  // main.appendChild(node);
-  // main.insertAdjacentHTML(`beforebegin`, node);
 
   return node;
 };

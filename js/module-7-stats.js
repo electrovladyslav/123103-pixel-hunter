@@ -1,7 +1,7 @@
 import makeElementFromTemplate from './makeElementFromTmeplate.js';
 
 const moduleElement = () => {
-  let node = makeElementFromTemplate(`
+  return makeElementFromTemplate(`
     <div class="result">
       <h1>Победа!</h1>
       <table class="result__table">
@@ -103,9 +103,6 @@ const moduleElement = () => {
       </table>
     </div>
     `);
-
-
-  return node;
 };
 
 export default moduleElement;
