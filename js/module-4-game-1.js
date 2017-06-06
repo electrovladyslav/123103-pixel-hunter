@@ -5,12 +5,10 @@ import levels from './data';
 import gameLevelTemplate from './gameLevelTemlate';
 
 const moduleElement = (level) => {
-  let node = makeElementFromTemplate(`<main>
-    ${gameLevelTemplate(level)}
-  </main>`);
+  let node = makeElementFromTemplate(gameLevelTemplate(level));
 
   const radio = node.querySelectorAll(`input`);
-  const main = node.querySelector(`main`);
+  const main = document.querySelector(`main`);
   [...radio].forEach((item) => {
     item.addEventListener(`change`, () => {
       if ((radio[0].checked || radio[1].checked)
