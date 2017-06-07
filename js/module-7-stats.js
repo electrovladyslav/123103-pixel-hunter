@@ -1,116 +1,84 @@
 import makeElementFromTemplate from './makeElementFromTmeplate.js';
-import addBackToStartScreenLogic from './addBackToStartScreenLogic';
+import data from './data.js';
 
-import header from './header';
-import footer from './footer';
-
+const results = data.results;
 const moduleElement = () => {
-  let node = makeElementFromTemplate(`${header}
+  return makeElementFromTemplate(`
     <div class="result">
-      <h1>Победа!</h1>
+      <h1>${results.header}</h1>
+      
       <table class="result__table">
         <tr>
           <td class="result__number">1.</td>
           <td colspan="2">
             <ul class="stats">
-              <li class="stats__result stats__result--wrong"></li>
-              <li class="stats__result stats__result--slow"></li>
-              <li class="stats__result stats__result--fast"></li>
-              <li class="stats__result stats__result--correct"></li>
-              <li class="stats__result stats__result--wrong"></li>
-              <li class="stats__result stats__result--unknown"></li>
-              <li class="stats__result stats__result--slow"></li>
-              <li class="stats__result stats__result--unknown"></li>
-              <li class="stats__result stats__result--fast"></li>
-              <li class="stats__result stats__result--unknown"></li>
+            ${results.thisGame.stats.map((statItem) => {
+              return `<li class="stats__result stats__result--${statItem}"></li>`;
+            }).join(``)}
             </ul>
           </td>
-          <td class="result__points">×&nbsp;100</td>
-          <td class="result__total">900</td>
+          <td class="result__points">×&nbsp;${results.thisGame.factor}</td>
+          <td class="result__total">${results.thisGame.stats.length * results.thisGame.factor}</td>
         </tr>
-        <tr>
+        ${results.thisGame.extras.map((extra) => {
+          return `<tr>
           <td></td>
-          <td class="result__extra">Бонус за скорость:</td>
-          <td class="result__extra">1&nbsp;<span class="stats__result stats__result--fast"></span></td>
-          <td class="result__points">×&nbsp;50</td>
-          <td class="result__total">50</td>
+          <td class="result__extra">${extra.title}</td>
+          <td class="result__extra">${extra.result}&nbsp;<span class="stats__result stats__result--${extra.icon}"></span></td>
+          <td class="result__points">×&nbsp;${Math.abs(extra.factor)}</td>
+          <td class="result__total">${extra.result * extra.factor}</td>
         </tr>
-        <tr>
-          <td></td>
-          <td class="result__extra">Бонус за жизни:</td>
-          <td class="result__extra">2&nbsp;<span class="stats__result stats__result--heart"></span></td>
-          <td class="result__points">×&nbsp;50</td>
-          <td class="result__total">100</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td class="result__extra">Штраф за медлительность:</td>
-          <td class="result__extra">2&nbsp;<span class="stats__result stats__result--slow"></span></td>
-          <td class="result__points">×&nbsp;50</td>
-          <td class="result__total">-100</td>
-        </tr>
+        <tr>`;
+        }).join(``)}
         <tr>
           <td colspan="5" class="result__total  result__total--final">950</td>
         </tr>
       </table>
+      
       <table class="result__table">
         <tr>
           <td class="result__number">2.</td>
           <td>
             <ul class="stats">
-              <li class="stats__result stats__result--wrong"></li>
-              <li class="stats__result stats__result--slow"></li>
-              <li class="stats__result stats__result--fast"></li>
-              <li class="stats__result stats__result--correct"></li>
-              <li class="stats__result stats__result--wrong"></li>
-              <li class="stats__result stats__result--unknown"></li>
-              <li class="stats__result stats__result--slow"></li>
-              <li class="stats__result stats__result--wrong"></li>
-              <li class="stats__result stats__result--fast"></li>
-              <li class="stats__result stats__result--wrong"></li>
+              ${results.prevGame.stats.map((statItem) => {
+                return `<li class="stats__result stats__result--${statItem}"></li>`;
+              }).join(``)}
             </ul>
           </td>
           <td class="result__total"></td>
-          <td class="result__total  result__total--final">fail</td>
+          <td class="result__total  result__total--final">${results.prevGame.final}</td>
         </tr>
       </table>
+      
       <table class="result__table">
         <tr>
           <td class="result__number">3.</td>
           <td colspan="2">
             <ul class="stats">
-              <li class="stats__result stats__result--wrong"></li>
-              <li class="stats__result stats__result--slow"></li>
-              <li class="stats__result stats__result--fast"></li>
-              <li class="stats__result stats__result--correct"></li>
-              <li class="stats__result stats__result--wrong"></li>
-              <li class="stats__result stats__result--unknown"></li>
-              <li class="stats__result stats__result--slow"></li>
-              <li class="stats__result stats__result--unknown"></li>
-              <li class="stats__result stats__result--fast"></li>
-              <li class="stats__result stats__result--unknown"></li>
+              ${results.prevGame2.stats.map((statItem) => {
+                return `<li class="stats__result stats__result--${statItem}"></li>`;
+              }).join(``)}
             </ul>
           </td>
-          <td class="result__points">×&nbsp;100</td>
-          <td class="result__total">900</td>
+          <td class="result__points">×&nbsp;${results.prevGame2.factor}</td>
+          <td class="result__total">${results.prevGame2.final}</td>
         </tr>
+        ${results.prevGame2.extras.map((extra) => {
+          return `<tr>
+            <td></td>
+            <td class="result__extra">${extra.title}</td>
+            <td class="result__extra">${extra.result}&nbsp;<span class="stats__result stats__result--${extra.icon}"></span></td>
+            <td class="result__points">×&nbsp;${Math.abs(extra.factor)}</td>
+          <td class="result__total">${extra.result * extra.factor}</td>
+            </tr>
+            <tr>`;
+        }).join(``)}
         <tr>
-          <td></td>
-          <td class="result__extra">Бонус за жизни:</td>
-          <td class="result__extra">2&nbsp;<span class="stats__result stats__result--heart"></span></td>
-          <td class="result__points">×&nbsp;50</td>
-          <td class="result__total">100</td>
-        </tr>
-        <tr>
-          <td colspan="5" class="result__total  result__total--final">950</td>
+          <td colspan="5" class="result__total  result__total--final">${results.prevGame2.final}</td>
         </tr>
       </table>
     </div>
-    ${footer}`);
-
-  addBackToStartScreenLogic(node);
-
-  return node;
+    `);
 };
 
 export default moduleElement;
