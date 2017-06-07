@@ -5,7 +5,7 @@ export default Object.freeze({
     options: [
       {
         name: `question1`,
-        imgSrc: `http://placehold.it/468x458`,
+        imgSrc: `https://k42.kn3.net/CF42609C8.jpg`,
         width: 468,
         height: 458,
         answers: {
@@ -19,7 +19,7 @@ export default Object.freeze({
       },
       {
         name: `question2`,
-        imgSrc: `http://placehold.it/468x458`,
+        imgSrc: `http://i.imgur.com/1KegWPz.jpg`,
         width: 468,
         height: 458,
         answers: {
