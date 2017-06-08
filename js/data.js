@@ -5,9 +5,10 @@ export default Object.freeze({
     options: [
       {
         name: `question1`,
-        imgSrc: `https://k42.kn3.net/CF42609C8.jpg`,
-        width: 468,
-        height: 458,
+        imgSrc: `../img/D2F0370D6.jpg`,
+        width: `100%`,
+        height: `auto`,
+        rightAnswer: `paint`,
         answers: {
           photo: {
             checked: false
@@ -19,9 +20,10 @@ export default Object.freeze({
       },
       {
         name: `question2`,
-        imgSrc: `http://i.imgur.com/1KegWPz.jpg`,
-        width: 468,
-        height: 458,
+        imgSrc: `../img/1KegWPz.jpg`,
+        width: `100%`,
+        height: `auto`,
+        rightAnswer: `paint`,
         answers: {
           photo: {
             checked: false
@@ -51,9 +53,10 @@ export default Object.freeze({
     options: [
       {
         name: `question1`,
-        imgSrc: `http://placehold.it/705x455`,
-        width: 705,
-        height: 455,
+        imgSrc: `../img/CF42609C8.jpg`,
+        width: `auto`,
+        height: `100%`,
+        rightAnswer: `paint`,
         answers: {
           photo: {
             checked: false
@@ -83,9 +86,10 @@ export default Object.freeze({
     options: [
       {
         name: `question1`,
-        imgSrc: `http://placehold.it/304x455`,
-        width: 304,
-        height: 455,
+        imgSrc: `../img/5C7060EC5.jpg`,
+        width: `100%`,
+        height: `auto`,
+        rightAnswer: `paint`,
         answers: {
           photo: {
             checked: false
@@ -97,9 +101,10 @@ export default Object.freeze({
       },
       {
         name: `question2`,
-        imgSrc: `http://placehold.it/304x455`,
-        width: 304,
-        height: 455,
+        imgSrc: `../img/DiHM5Zb.jpg`,
+        width: `100%`,
+        height: `auto`,
+        rightAnswer: `photo`,
         answers: {
           photo: {
             checked: false
@@ -111,9 +116,10 @@ export default Object.freeze({
       },
       {
         name: `question3`,
-        imgSrc: `http://placehold.it/304x455`,
-        width: 304,
-        height: 455,
+        imgSrc: `../img/DKR1HtB.jpg`,
+        width: `auto`,
+        height: `100%`,
+        rightAnswer: `photo`,
         answers: {
           photo: {
             checked: false
