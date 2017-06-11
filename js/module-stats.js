@@ -1,8 +1,7 @@
 import makeElementFromTemplate from './makeElementFromTmeplate.js';
-import data from './data.js';
 
-const results = data.results;
-const moduleElement = () => {
+const moduleElement = (game) => {
+  const results = game.results;
   return makeElementFromTemplate(`
     <div class="result">
       <h1>${results.header}</h1>

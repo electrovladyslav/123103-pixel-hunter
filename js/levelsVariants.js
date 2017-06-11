@@ -45,7 +45,8 @@ export default Object.freeze({
       `unknown`,
       `unknown`,
       `unknown`
-    ]
+    ],
+    nextLevel: `level-2`
   },
   'level-2': {
     task: `Угадай, фото или рисунок?`,
@@ -78,7 +79,8 @@ export default Object.freeze({
       `unknown`,
       `fast`,
       `unknown`
-    ]
+    ],
+    nextLevel: `level-3`
   },
   'level-3': {
     task: `Найдите рисунок среди изображений`,
@@ -142,82 +144,5 @@ export default Object.freeze({
       `fast`,
       `unknown`
     ]
-  },
-  'results': {
-    header: `Победа!`,
-    thisGame: {
-      stats: [
-        `wrong`,
-        `slow`,
-        `fast`,
-        `correct`,
-        `wrong`,
-        `unknown`,
-        `slow`,
-        `unknown`,
-        `fast`,
-        `unknown`
-      ],
-      factor: 100,
-      extras: [
-        {
-          title: `Бонус за скорость`,
-          result: 1,
-          icon: `fast`,
-          factor: 50
-        },
-        {
-          title: `Бонус за жизни`,
-          result: 1,
-          icon: `heart`,
-          factor: 50
-        },
-        {
-          title: `Штраф за медлительность`,
-          result: 2,
-          icon: `slow`,
-          factor: -50
-        }
-      ]
-    },
-    prevGame: {
-      stats: [
-        `wrong`,
-        `slow`,
-        `fast`,
-        `correct`,
-        `wrong`,
-        `unknown`,
-        `slow`,
-        `wrong`,
-        `fast`,
-        `wrong`
-      ],
-      final: `fail`
-    },
-    prevGame2: {
-      stats: [
-        `wrong`,
-        `slow`,
-        `fast`,
-        `correct`,
-        `wrong`,
-        `unknown`,
-        `slow`,
-        `unknown`,
-        `fast`,
-        `unknown`
-      ],
-      factor: 100,
-      final: 900,
-      extras: [
-        {
-          title: `Бонус за скорость`,
-          result: 1,
-          icon: `fast`,
-          factor: 50
-        }
-      ]
-    }
   }
 });
