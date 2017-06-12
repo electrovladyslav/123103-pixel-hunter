@@ -2,7 +2,7 @@ import assert from 'assert';
 import game from './game';
 
 describe(`Game`, () => {
-  describe(`Levels`, () => {
+  describe(`Questions`, () => {
     it(`should be 10 question`, () => {
       assert.equal(10, game.questions.length);
     });
@@ -12,6 +12,11 @@ describe(`Game`, () => {
         assert.equal(30, question.time);
       };
       game.questions.forEach(checkQuestionTime);
+    });
+
+    it(`should be 3 variants of questions (levels)`, () => {
+      const levelsVariants = Object.keys(game.levels).length;
+      assert.equal(3, levelsVariants);
     });
   });
 });

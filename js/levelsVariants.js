@@ -8,30 +8,14 @@ export default Object.freeze({
         imgSrc: `../img/D2F0370D6.jpg`,
         width: `100%`,
         height: `auto`,
-        rightAnswer: `paint`,
-        answers: {
-          photo: {
-            checked: false
-          },
-          paint: {
-            checked: false
-          }
-        }
+        rightAnswer: `paint`
       },
       {
         name: `question2`,
         imgSrc: `../img/1KegWPz.jpg`,
         width: `100%`,
         height: `auto`,
-        rightAnswer: `paint`,
-        answers: {
-          photo: {
-            checked: false
-          },
-          paint: {
-            checked: false
-          }
-        }
+        rightAnswer: `paint`
       }
     ],
     stats: [
@@ -45,8 +29,7 @@ export default Object.freeze({
       `unknown`,
       `unknown`,
       `unknown`
-    ],
-    nextLevel: `level-2`
+    ]
   },
   'level-2': {
     task: `Угадай, фото или рисунок?`,
@@ -57,15 +40,7 @@ export default Object.freeze({
         imgSrc: `../img/CF42609C8.jpg`,
         width: `auto`,
         height: `100%`,
-        rightAnswer: `paint`,
-        answers: {
-          photo: {
-            checked: false
-          },
-          paint: {
-            checked: false
-          }
-        }
+        rightAnswer: `paint`
       }
     ],
     stats: [
@@ -79,57 +54,33 @@ export default Object.freeze({
       `unknown`,
       `fast`,
       `unknown`
-    ],
-    nextLevel: `level-3`
+    ]
   },
   'level-3': {
     task: `Найдите рисунок среди изображений`,
     contentWide: `game__content--triple`,
+    toFind: `paint`,
     options: [
       {
         name: `question1`,
         imgSrc: `../img/5C7060EC5.jpg`,
         width: `100%`,
         height: `auto`,
-        rightAnswer: `paint`,
-        answers: {
-          photo: {
-            checked: false
-          },
-          paint: {
-            checked: false
-          }
-        }
+        rightAnswer: `paint`
       },
       {
         name: `question2`,
         imgSrc: `../img/DiHM5Zb.jpg`,
         width: `100%`,
         height: `auto`,
-        rightAnswer: `photo`,
-        answers: {
-          photo: {
-            checked: false
-          },
-          paint: {
-            checked: false
-          }
-        }
+        rightAnswer: `photo`
       },
       {
         name: `question3`,
         imgSrc: `../img/DKR1HtB.jpg`,
         width: `auto`,
         height: `100%`,
-        rightAnswer: `photo`,
-        answers: {
-          photo: {
-            checked: false
-          },
-          paint: {
-            checked: false
-          }
-        }
+        rightAnswer: `photo`
       }
     ],
     stats: [

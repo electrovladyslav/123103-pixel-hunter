@@ -3,6 +3,8 @@ import levelVariants from './levelsVariants';
 export default Object.freeze({
   levels: levelVariants,
   currentQuestion: 0,
+  lives: 3,
+  stats: [],
 
   questions: [
     {
@@ -15,6 +17,34 @@ export default Object.freeze({
     },
     {
       level: `level-2`,
+      time: 30
+    },
+    {
+      level: `level-1`,
+      time: 30
+    },
+    {
+      level: `level-2`,
+      time: 30
+    },
+    {
+      level: `level-3`,
+      time: 30
+    },
+    {
+      level: `level-1`,
+      time: 30
+    },
+    {
+      level: `level-2`,
+      time: 30
+    },
+    {
+      level: `level-3`,
+      time: 30
+    },
+    {
+      level: `level-1`,
       time: 30
     }
   ],

@@ -1,4 +1,4 @@
-export default (level) => {
+export default (level, stats) => {
   return `<div class="game">
     <p class="game__task">${level.task}</p>
     <form class="game__content ${level.contentWide}">
@@ -23,9 +23,10 @@ export default (level) => {
     </form>
     <div class="stats">
       <ul class="stats">
-        ${level.stats.map((statsItem) => {
+        ${stats.map((statsItem) => {
           return `<li class="stats__result stats__result--${statsItem}"></li>`;
         }).join(``)}
+        ${new Array(10 - stats.length).fill(`<li class="stats__result stats__result--unknown">`).join(``)}
             </ul>
           </div>
         </div>`;
