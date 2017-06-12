@@ -4,16 +4,17 @@ const moduleElement = (game) => {
   const results = game.results;
   return makeElementFromTemplate(`
     <div class="result">
-      <h1>${results.header}</h1>
+      <h1>${(game.lives > 0) ? game.headerWin : game.headerFail}</h1>
       
       <table class="result__table">
         <tr>
           <td class="result__number">1.</td>
           <td colspan="2">
             <ul class="stats">
-            ${results.thisGame.stats.map((statItem) => {
+            ${game.stats.map((statItem) => {
               return `<li class="stats__result stats__result--${statItem}"></li>`;
             }).join(``)}
+            ${new Array(10 - game.stats.length).fill(`<li class="stats__result stats__result--unknown">`).join(``)}
             </ul>
           </td>
           <td class="result__points">×&nbsp;${results.thisGame.factor}</td>

@@ -48,6 +48,8 @@ export default Object.freeze({
       time: 30
     }
   ],
+  headerWin: `Победа!`,
+  headerFail: `FAIL`,
   results: {
     header: `Победа!`,
     thisGame: {

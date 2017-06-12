@@ -6,11 +6,13 @@ import checkAnswer from './checkAnswer';
 
 
 const moduleElement = (game) => {
-  if (!game.questions[game.currentQuestion]) {
+  // exit to statistic page
+  if ((!game.questions[game.currentQuestion])
+      || (game.lives <= 0)) {
     return moduleStats(game);
   } else {
     const currentLevel = game.levels[game.questions[game.currentQuestion].level];
-    const gameNextLevel = Object.assign({}, game, {
+    let gameNextLevel = Object.assign({}, game, {
       currentQuestion: game.currentQuestion + 1
     });
 
@@ -23,7 +25,11 @@ const moduleElement = (game) => {
         [...radio].forEach((item) => {
           item.onchange = (event) => {
             event.preventDefault();
-            gameNextLevel.stats.push(checkAnswer([event.target.value], [currentLevel.options[0].rightAnswer]));
+            let resultAnswer = checkAnswer([event.target.value], [currentLevel.options[0].rightAnswer]);
+            if (resultAnswer === `wrong`) {
+              gameNextLevel.lives--;
+            }
+            gameNextLevel.stats.push(resultAnswer);
             showScreen(main, moduleElement(gameNextLevel));
           };
         });
@@ -44,9 +50,11 @@ const moduleElement = (game) => {
                 }
               });
 
-              gameNextLevel.stats.push(
-                  checkAnswer(checkedRadio, [currentLevel.options[0].rightAnswer, currentLevel.options[1].rightAnswer]
-                ));
+              let resultAnswer = checkAnswer(checkedRadio, [currentLevel.options[0].rightAnswer, currentLevel.options[1].rightAnswer]);
+              if (resultAnswer === `wrong`) {
+                gameNextLevel.lives--;
+              }
+              gameNextLevel.stats.push(resultAnswer);
 
               showScreen(main, moduleElement(gameNextLevel));
             }
@@ -60,9 +68,12 @@ const moduleElement = (game) => {
         [...nextTrigger].forEach((item, itemNumber) => {
           item.addEventListener(`click`, (event) => {
             event.preventDefault();
-            gameNextLevel.stats.push(
-                checkAnswer([currentLevel.toFind]
-                , [currentLevel.options[itemNumber].rightAnswer]));
+            let resultAnswer = checkAnswer([currentLevel.toFind]
+                , [currentLevel.options[itemNumber].rightAnswer]);
+            if (resultAnswer === `wrong`) {
+              gameNextLevel.lives--;
+            }
+            gameNextLevel.stats.push(resultAnswer);
 
             showScreen(main, moduleElement(gameNextLevel));
           });

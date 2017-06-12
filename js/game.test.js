@@ -1,5 +1,6 @@
 import assert from 'assert';
 import game from './game';
+// import moduleLevel from './module-gameLevel';
 
 describe(`Game`, () => {
   describe(`Questions`, () => {
@@ -17,6 +18,11 @@ describe(`Game`, () => {
     it(`should be 3 variants of questions (levels)`, () => {
       const levelsVariants = Object.keys(game.levels).length;
       assert.equal(3, levelsVariants);
+    });
+  });
+  describe(`Lives`, () => {
+    it(`should be 3 lives at start of the game`, () => {
+      assert.equal(game.lives, 3);
     });
   });
 });
