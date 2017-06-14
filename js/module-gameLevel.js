@@ -12,11 +12,11 @@ const moduleElement = (game) => {
     return moduleStats(game);
   } else {
     const currentLevel = game.levels[game.questions[game.currentQuestion].level];
+    const node = makeElementFromTemplate(gameLevelTemplate(currentLevel, game));
+
     let gameNextLevel = Object.assign({}, game, {
       currentQuestion: game.currentQuestion + 1
     });
-
-    const node = makeElementFromTemplate(gameLevelTemplate(currentLevel, game.stats));
 
     const main = document.querySelector(`main`);
     const radio = node.querySelectorAll(`input`);

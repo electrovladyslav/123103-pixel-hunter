@@ -17,18 +17,6 @@ export default Object.freeze({
         height: `auto`,
         rightAnswer: `paint`
       }
-    ],
-    stats: [
-      `wrong`,
-      `slow`,
-      `fast`,
-      `correct`,
-      `unknown`,
-      `unknown`,
-      `unknown`,
-      `unknown`,
-      `unknown`,
-      `unknown`
     ]
   },
   'level-2': {
@@ -42,18 +30,6 @@ export default Object.freeze({
         height: `100%`,
         rightAnswer: `paint`
       }
-    ],
-    stats: [
-      `wrong`,
-      `slow`,
-      `fast`,
-      `correct`,
-      `wrong`,
-      `unknown`,
-      `slow`,
-      `unknown`,
-      `fast`,
-      `unknown`
     ]
   },
   'level-3': {
@@ -82,18 +58,6 @@ export default Object.freeze({
         height: `100%`,
         rightAnswer: `photo`
       }
-    ],
-    stats: [
-      `wrong`,
-      `slow`,
-      `fast`,
-      `correct`,
-      `wrong`,
-      `unknown`,
-      `slow`,
-      `unknown`,
-      `fast`,
-      `unknown`
     ]
   }
 });
