@@ -1,93 +1,57 @@
 import levelVariants from './levelsVariants';
+import constants from './constants';
 
 export default Object.freeze({
   levels: levelVariants,
   currentQuestion: 0,
-  lives: 3,
+  lives: constants.LIVES,
   stats: [],
 
   questions: [
     {
       level: `level-1`,
-      time: 30
+      time: constants.TIME
     },
     {
       level: `level-3`,
-      time: 30
+      time: constants.TIME
     },
     {
       level: `level-2`,
-      time: 30
+      time: constants.TIME
     },
     {
       level: `level-1`,
-      time: 30
+      time: constants.TIME
     },
     {
       level: `level-2`,
-      time: 30
+      time: constants.TIME
     },
     {
       level: `level-3`,
-      time: 30
+      time: constants.TIME
     },
     {
       level: `level-1`,
-      time: 30
+      time: constants.TIME
     },
     {
       level: `level-2`,
-      time: 30
+      time: constants.TIME
     },
     {
       level: `level-3`,
-      time: 30
+      time: constants.TIME
     },
     {
       level: `level-1`,
-      time: 30
+      time: constants.TIME
     }
   ],
-  headerWin: `Победа!`,
-  headerFail: `FAIL`,
-  results: {
-    header: `Победа!`,
-    thisGame: {
-      stats: [
-        `wrong`,
-        `slow`,
-        `fast`,
-        `correct`,
-        `wrong`,
-        `unknown`,
-        `slow`,
-        `unknown`,
-        `fast`,
-        `unknown`
-      ],
-      factor: 100,
-      extras: [
-        {
-          title: `Бонус за скорость`,
-          result: 1,
-          icon: `fast`,
-          factor: 50
-        },
-        {
-          title: `Бонус за жизни`,
-          result: 1,
-          icon: `heart`,
-          factor: 50
-        },
-        {
-          title: `Штраф за медлительность`,
-          result: 2,
-          icon: `slow`,
-          factor: -50
-        }
-      ]
-    },
-    prevGame: {
+  prevGamesResults: [
+    {
+      lives: 0,
       stats: [
         `wrong`,
         `slow`,
@@ -99,10 +63,10 @@ export default Object.freeze({
         `wrong`,
         `fast`,
         `wrong`
-      ],
-      final: `fail`
+      ]
     },
-    prevGame2: {
+    {
+      lives: 1,
       stats: [
         `wrong`,
         `slow`,
@@ -114,17 +78,7 @@ export default Object.freeze({
         `unknown`,
         `fast`,
         `unknown`
-      ],
-      factor: 100,
-      final: 900,
-      extras: [
-        {
-          title: `Бонус за скорость`,
-          result: 1,
-          icon: `fast`,
-          factor: 50
-        }
       ]
     }
-  }
+  ]
 });
