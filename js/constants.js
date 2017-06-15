@@ -1,7 +1,7 @@
 export default {
   QUESTIONS: 10,
   LIVES: 3,
-  TIME: 30,
+  TIME: 3,
   RIGHT_FACTOR: 100,
   FAST_FACTOR: 50,
   SLOW_FACTOR: -50,

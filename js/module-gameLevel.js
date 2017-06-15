@@ -3,7 +3,7 @@ import showScreen from './showScreen';
 import moduleStats from './module-stats';
 import gameLevelTemplate from './gameLevelTemlate';
 import checkAnswer from './checkAnswer';
-
+import timer from './timer';
 
 const moduleElement = (game) => {
   // exit to statistic page
@@ -14,12 +14,12 @@ const moduleElement = (game) => {
     const currentLevel = game.levels[game.questions[game.currentQuestion].level];
     const node = makeElementFromTemplate(gameLevelTemplate(currentLevel, game));
 
-    const timeContainer = node.querySelector(`.game__timer`);
-    setInterval(showScreen(timeContainer, makeElementFromTemplate(`${Math.random()}`
-    )), 1000);
     let gameNextLevel = Object.assign({}, game, {
       currentQuestion: game.currentQuestion + 1
     });
+
+    const timerContainer = node.querySelector(`.game__timer`);
+    timer(timerContainer, game);
 
     const main = document.querySelector(`main`);
     const radio = node.querySelectorAll(`input`);
