@@ -1,12 +1,16 @@
-import constants from './constants';
+import CONSTANTS from './constants';
 
 export default (game) => {
+  if ((game.stats === void 0) || (game.lives === void 0)) {
+    throw new Error(`Empty data`);
+  }
+
   let result = {
     stats: game.stats,
     correct: {
       name: `Правильных ответов`,
       quantity: 0,
-      factor: constants.RIGHT_FACTOR,
+      factor: CONSTANTS.RIGHT_FACTOR,
       points: 0
     },
     bonuses: {
@@ -14,27 +18,26 @@ export default (game) => {
         name: `Бонус за скорость`,
         icon: `fast`,
         quantity: 0,
-        factor: constants.FAST_FACTOR,
+        factor: CONSTANTS.FAST_FACTOR,
         points: 0
       },
       lives: {
         name: `Бонус за жизни`,
         icon: `heart`,
         quantity: game.lives,
-        factor: constants.LIVES_FACTOR,
+        factor: CONSTANTS.LIVES_FACTOR,
         points: 0
       },
       slow: {
         name: `Штраф за медлительность`,
         icon: `slow`,
         quantity: 0,
-        factor: constants.SLOW_FACTOR,
+        factor: CONSTANTS.SLOW_FACTOR,
         points: 0
       }
     },
     totalPoints: 0
   };
-
   if (game.lives > 0) {
     result.win = true;
     result.header = `Победа!`;
@@ -63,8 +66,8 @@ export default (game) => {
   result.correct.points = result.correct.quantity * result.correct.factor;
   result.totalPoints += result.correct.points;
 
-  Object.entries(result.bonuses).forEach((entry) => {
-    const bonusItem = entry[1];
+  Object.keys(result.bonuses).forEach((key) => {
+    const bonusItem = result.bonuses[key];
     bonusItem.points = bonusItem.quantity * bonusItem.factor;
     result.totalPoints += bonusItem.points;
   });

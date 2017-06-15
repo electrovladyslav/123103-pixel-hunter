@@ -4,7 +4,7 @@ export default (level, game) => {
       ${new Array(game.lives).fill(`<span class="game__live game__live--full"></span>`).join(``)}
       ${new Array(3 - game.lives).fill(`<span class="game__live game__live--empty"></span>`).join(``)}
     </div>
-    <p class="game_timer">${game.questions[game.currentQuestion].time}</p>
+    <p class="game__timer">${game.questions[game.currentQuestion].time}</p>
     <p class="game__task">${level.task}</p>
     
     <form class="game__content ${level.contentWide}">

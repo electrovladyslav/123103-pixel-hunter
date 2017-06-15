@@ -14,6 +14,9 @@ const moduleElement = (game) => {
     const currentLevel = game.levels[game.questions[game.currentQuestion].level];
     const node = makeElementFromTemplate(gameLevelTemplate(currentLevel, game));
 
+    const timeContainer = node.querySelector(`.game__timer`);
+    setInterval(showScreen(timeContainer, makeElementFromTemplate(`${Math.random()}`
+    )), 1000);
     let gameNextLevel = Object.assign({}, game, {
       currentQuestion: game.currentQuestion + 1
     });
