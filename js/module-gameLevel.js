@@ -12,14 +12,16 @@ const moduleElement = (game) => {
     return moduleStats(game);
   } else {
     const currentLevel = game.levels[game.questions[game.currentQuestion].level];
-    const node = makeElementFromTemplate(gameLevelTemplate(currentLevel, game));
-
     let gameNextLevel = Object.assign({}, game, {
       currentQuestion: game.currentQuestion + 1
     });
 
+    let currentGame = game.questions[game.currentQuestion];
+
+    const node = makeElementFromTemplate(gameLevelTemplate(currentLevel, game));
+
     const timerContainer = node.querySelector(`.game__timer`);
-    timer(timerContainer, game);
+    const timerId = timer(timerContainer, game);
 
     const main = document.querySelector(`main`);
     const radio = node.querySelectorAll(`input`);
@@ -28,11 +30,12 @@ const moduleElement = (game) => {
         [...radio].forEach((item) => {
           item.onchange = (event) => {
             event.preventDefault();
-            let resultAnswer = checkAnswer([event.target.value], [currentLevel.options[0].rightAnswer]);
+            let resultAnswer = checkAnswer([event.target.value], [currentLevel.options[0].rightAnswer], currentGame.time);
             if (resultAnswer === `wrong`) {
               gameNextLevel.lives--;
             }
             gameNextLevel.stats.push(resultAnswer);
+            clearInterval(timerId);
             showScreen(main, moduleElement(gameNextLevel));
           };
         });
@@ -53,12 +56,15 @@ const moduleElement = (game) => {
                 }
               });
 
-              let resultAnswer = checkAnswer(checkedRadio, [currentLevel.options[0].rightAnswer, currentLevel.options[1].rightAnswer]);
+              let resultAnswer = checkAnswer(checkedRadio
+                , [currentLevel.options[0].rightAnswer, currentLevel.options[1].rightAnswer]
+                , currentGame.time);
               if (resultAnswer === `wrong`) {
                 gameNextLevel.lives--;
               }
               gameNextLevel.stats.push(resultAnswer);
 
+              clearInterval(timerId);
               showScreen(main, moduleElement(gameNextLevel));
             }
           });
@@ -72,12 +78,14 @@ const moduleElement = (game) => {
           item.addEventListener(`click`, (event) => {
             event.preventDefault();
             let resultAnswer = checkAnswer([currentLevel.toFind]
-                , [currentLevel.options[itemNumber].rightAnswer]);
+                , [currentLevel.options[itemNumber].rightAnswer]
+                , currentGame.time);
             if (resultAnswer === `wrong`) {
               gameNextLevel.lives--;
             }
             gameNextLevel.stats.push(resultAnswer);
 
+            clearInterval(timerId);
             showScreen(main, moduleElement(gameNextLevel));
           });
         });
