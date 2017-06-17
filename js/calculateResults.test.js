@@ -6,26 +6,26 @@ describe(`Points counting`, () => {
     lives: 0,
     stats: [
       `wrong`,
-      `slow`,    // 50
-      `fast`,    // 150
-      `correct`, // 100
+      `slow`,
+      `fast`,
+      `correct`,
       `wrong`,
       `unknown`,
-      `slow`,     // 50
+      `slow`,
       `wrong`,
-      `fast`,     // 150
+      `fast`,
       `wrong`
-    ]             // 500
+    ]
   };
 
   let game2 = {
-    lives: 3,     // 150
+    lives: 3,
     stats: [
-      `correct`, // 100
-      `slow`,    // 50
-      `slow`,    // 50
-      `correct`, // 100
-      `correct`, // 100
+      `correct`,
+      `slow`,
+      `slow`,
+      `correct`,
+      `correct`,
       `unknown`,
       `slow`,     // 50
       `correct`,  // 100
@@ -57,10 +57,5 @@ describe(`Points counting`, () => {
     assert.equal(calculateResults(game1).totalPoints, 500);
     assert.equal(calculateResults(game2).totalPoints, 850);
   });
-
-  // it(`should throw an Error on empty data`, () => {
-  //   let emptyGame = {};
-  //   assert.throws(calculateResults(emptyGame), Error(`Empty data`));
-  // });
 });
 
