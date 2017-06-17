@@ -5,14 +5,14 @@ export default Object.freeze({
     options: [
       {
         name: `question1`,
-        imgSrc: `../img/D2F0370D6.jpg`,
+        imgSrc: `https://k42.kn3.net/D2F0370D6.jpg`,
         width: `100%`,
         height: `auto`,
         rightAnswer: `paint`
       },
       {
         name: `question2`,
-        imgSrc: `../img/1KegWPz.jpg`,
+        imgSrc: `http://i.imgur.com/1KegWPz.jpg`,
         width: `100%`,
         height: `auto`,
         rightAnswer: `paint`
@@ -25,7 +25,7 @@ export default Object.freeze({
     options: [
       {
         name: `question1`,
-        imgSrc: `../img/CF42609C8.jpg`,
+        imgSrc: `https://k42.kn3.net/CF42609C8.jpg`,
         width: `auto`,
         height: `100%`,
         rightAnswer: `paint`
@@ -39,21 +39,21 @@ export default Object.freeze({
     options: [
       {
         name: `question1`,
-        imgSrc: `../img/5C7060EC5.jpg`,
+        imgSrc: `https://k32.kn3.net/5C7060EC5.jpg`,
         width: `100%`,
         height: `auto`,
         rightAnswer: `paint`
       },
       {
         name: `question2`,
-        imgSrc: `../img/DiHM5Zb.jpg`,
+        imgSrc: `https://i.imgur.com/DiHM5Zb.jpg`,
         width: `100%`,
         height: `auto`,
         rightAnswer: `photo`
       },
       {
         name: `question3`,
-        imgSrc: `../img/DKR1HtB.jpg`,
+        imgSrc: `http://i.imgur.com/DKR1HtB.jpg`,
         width: `auto`,
         height: `100%`,
         rightAnswer: `photo`
