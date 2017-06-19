@@ -51,8 +51,8 @@ gulp.task('test', function () {
   return gulp
     .src(['js/**/*.test.js'], { read: false })
     .pipe(mocha({
-      compilers: ['js:babel-core/register'], // Включим поддержку "import/export" в Mocha тестах
-      reporter: 'spec'       // Вид в котором я хочу отображать результаты тестирования
+      compilers: ['js:babel-core/register'], // Поддержка "import/export" в Mocha тестах
+      reporter: 'spec'       // Вид отображения результатов тестирования
     }));
 });
 

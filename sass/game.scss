@@ -15,6 +15,15 @@
   top: 25px;
   left: 50%;
   transform: translateX(-50%);
+
+  &--blink {
+    color: rgba(222, 31, 31, 1);
+    animation: blink 1s linear infinite;
+  }
+
+  @keyframes blink {
+    100% { color: rgba(222, 31, 31, 0); }
+  }
 }
 
 .game__lives {
@@ -22,7 +31,24 @@
   top: 20px;
   right: 0;
 }
+.game__live {
+  display: inline-block;
+  vertical-align: bottom;
 
+  overflow: hidden;
+  width: 30px;
+  height: 30px;
+
+  margin: 5px;
+
+  &--full {
+    background: url("../img/heart__full.svg") no-repeat center;
+  }
+
+  &--empty {
+    background: url("../img/heart__empty.svg") no-repeat center;
+  }
+}
 .game__task {
   font-size: 22px;
   line-height: 35px;

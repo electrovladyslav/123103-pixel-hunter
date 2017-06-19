@@ -1,6 +1,12 @@
-export default (level) => {
+export default (level, game) => {
   return `<div class="game">
+    <div class="game__lives">
+      ${new Array(game.lives).fill(`<span class="game__live game__live--full"></span>`).join(``)}
+      ${new Array(3 - game.lives).fill(`<span class="game__live game__live--empty"></span>`).join(``)}
+    </div>
+    <p class="game__timer">${game.questions[game.currentQuestion].time}</p>
     <p class="game__task">${level.task}</p>
+    
     <form class="game__content ${level.contentWide}">
        
       ${level.options.map((optionItem, optionNumber, options) => {
@@ -23,10 +29,11 @@ export default (level) => {
     </form>
     <div class="stats">
       <ul class="stats">
-        ${level.stats.map((statsItem) => {
+        ${game.stats.map((statsItem) => {
           return `<li class="stats__result stats__result--${statsItem}"></li>`;
         }).join(``)}
+        ${new Array(10 - game.stats.length).fill(`<li class="stats__result stats__result--unknown">`).join(``)}
             </ul>
           </div>
-        </div>`;
+        </p>`;
 };

@@ -1,7 +1,7 @@
 import makeElementFromTemplate from './makeElementFromTmeplate.js';
 import showScreen from './showScreen';
-import nextModule from './module-4-game-1';
-import levels from './data';
+import gameLevelModule from './module-gameLevel';
+import initialGame from './game';
 
 const moduleElement = () => {
   let node = makeElementFromTemplate(`
@@ -28,7 +28,7 @@ const moduleElement = () => {
   const main = node.querySelector(`main`);
   const nextTrigger = node.querySelector(`.rules__form`);
   nextTrigger.addEventListener(`submit`, () => {
-    showScreen(main, nextModule(levels[`level-1`]));
+    showScreen(main, gameLevelModule(initialGame));
   });
 
   const rulesInput = node.querySelector(`.rules__input`);
