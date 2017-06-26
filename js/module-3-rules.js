@@ -1,7 +1,7 @@
 import makeElementFromTemplate from './makeElementFromTmeplate.js';
 import showScreen from './showScreen';
 import gameLevelModule from './module-gameLevel';
-import initialGame from './game';
+import initialGame from './initialState';
 
 const moduleElement = () => {
   let node = makeElementFromTemplate(`

@@ -1,15 +1,14 @@
 import AbstractView from '../AbstractView';
-import makeElementFromTemplate from '../makeElementFromTmeplate';
 import timer from '../timer';
 
 export default class GameLevelView extends AbstractView {
-  constructor(game) {
+  constructor(state) {
     super();
-    this.game = game;
-    this.level = game.levels[game.questions[game.currentQuestion].level];
+    this.game = state;
+    this.level = state.levels[state.questions[state.currentQuestion].level];
   }
 
-  template() {
+  get template() {
     return `
 <div class="game">
   <div class="game__lives">
@@ -53,10 +52,6 @@ export default class GameLevelView extends AbstractView {
   `;
   }
 
-  render() {
-    return makeElementFromTemplate(this.template());
-  }
-
   bind() {
     const timerContainer = this.element.querySelector(`.game__timer`);
     const timerId = timer(timerContainer, this.game);
@@ -69,7 +64,8 @@ export default class GameLevelView extends AbstractView {
           item.onchange = (event) => {
             event.preventDefault();
             clearInterval(timerId);
-            this.onChooseAnswer([event.target.value]);
+            this.onChooseAnswers([event.target.value]
+              , [this.level.options[0].rightAnswer]);
           };
         });
         break;
@@ -90,7 +86,8 @@ export default class GameLevelView extends AbstractView {
               });
 
               clearInterval(timerId);
-              this.onChooseAnswer(checkedRadio);
+              this.onChooseAnswers(checkedRadio
+                , [this.level.options[0].rightAnswer, this.level.options[1].rightAnswer]);
             }
           });
         });
@@ -104,14 +101,27 @@ export default class GameLevelView extends AbstractView {
             event.preventDefault();
 
             clearInterval(timerId);
-            this.onChooseAnswer([this.level.options[itemNumber].rightAnswer]);
+            this.onChooseAnswers([this.level.options[itemNumber].rightAnswer]
+              , [this.level.toFind]);
           });
         });
         break;
     }
   }
 
-  onChooseAnswer() {
+  /**
+   * Return chosed answers and right anwers
+   * @param {Array} checkedAnswers
+   * @param {Array} rightAnswers
+   * @param {Number} timeLeft
+   */
+  onChooseAnswers(checkedAnswers, rightAnswers, timeLeft) {
 
+  }
+
+  switchNextLevel(state) {
+    showScreen(this.container, state(Object.assign({}, newState, {
+      currentQuestion: state.currentQuestion + 1
+    })));
   }
 }

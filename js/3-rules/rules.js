@@ -1,7 +1,7 @@
 import showScreen from '../showScreen';
 import RulesView from './RulesView';
 import gameLevelModule from '../4-game/gameLevel';
-import initialGame from '../game';
+import initialGame from '../initialState';
 
 const rules = new RulesView();
 rules.switchToNextScreen = () => {

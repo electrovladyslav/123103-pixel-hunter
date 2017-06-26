@@ -1,5 +1,5 @@
 import assert from 'assert';
-import game from './game';
+import game from './initialState';
 // import moduleLevel from './module-gameLevel';
 
 describe(`Game`, () => {
