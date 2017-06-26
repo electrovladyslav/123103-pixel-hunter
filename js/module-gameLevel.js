@@ -77,8 +77,9 @@ const moduleElement = (game) => {
         [...nextTrigger].forEach((item, itemNumber) => {
           item.addEventListener(`click`, (event) => {
             event.preventDefault();
-            let resultAnswer = checkAnswer([currentLevel.toFind]
-                , [currentLevel.options[itemNumber].rightAnswer]
+            let resultAnswer = checkAnswer(
+                [currentLevel.options[itemNumber].rightAnswer]
+                , [currentLevel.toFind]
                 , currentGame.time);
             if (resultAnswer === `wrong`) {
               gameNextLevel.lives--;

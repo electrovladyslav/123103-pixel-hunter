@@ -1,10 +1,17 @@
-import calculateResults from './calculateResults';
+import AbstractView from '../AbstractView';
+import calculateResults from '../calculateResults';
+import initialGame from '../game';
 
-export default (game) => {
+export default class RulesView extends AbstractView {
+  constructor(game = initialGame) {
+    super();
+    this.game = game;
+  }
 
-  let tablesCounter = 0;
-  const makeTable = (result) => {
-    let table = `<table class="result__table">
+  get template() {
+    let tablesCounter = 0;
+    const makeTable = (result) => {
+      let table = `<table class="result__table">
         <tr>
           <td class="result__number">${++tablesCounter}</td>
           <td colspan="2">
@@ -19,8 +26,8 @@ export default (game) => {
           <td class="result__total
           ${(result.win) ? `">` + result.correct.points : ` result__total--final">` + result.header}</td>
         </tr>`;
-    if (result.win) {
-      table += `
+      if (result.win) {
+        table += `
         ${Object.entries(result.bonuses).map((entry) => {
           const bonus = entry[1];
           if (Math.abs(bonus.points) > 0) {
@@ -39,19 +46,20 @@ export default (game) => {
         <tr>
           <td colspan="5" class="result__total  result__total--final">${result.totalPoints}</td>
         </tr>`;
-    }
-    table += `</table>`;
-    return table;
-  };
+      }
+      table += `</table>`;
+      return table;
+    };
 
-  const result = calculateResults(game);
-  let template = `
+    const result = calculateResults(this.game);
+    let template = `
     <div class="result">
       <h1>${result.header}</h1>`;
 
-  template += makeTable(result)
-    + makeTable(calculateResults(game.prevGamesResults[0]))
-    + makeTable(calculateResults(game.prevGamesResults[1]))
-    + `</div>`;
-  return template;
-};
+    template += makeTable(result)
+      + makeTable(calculateResults(this.game.prevGamesResults[0]))
+      + makeTable(calculateResults(this.game.prevGamesResults[1]))
+      + `</div>`;
+    return template;
+  }
+}
