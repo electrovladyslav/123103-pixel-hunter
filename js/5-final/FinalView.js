@@ -1,6 +1,5 @@
 import AbstractView from '../AbstractView';
 import calculateResults from '../misc/functions/calculateResults';
-// import initialGame from '../game';
 
 export default class RulesView extends AbstractView {
   constructor(game) {
