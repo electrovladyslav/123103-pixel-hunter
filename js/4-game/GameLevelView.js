@@ -1,10 +1,9 @@
 import AbstractView from '../AbstractView';
 import makeElementFromTemplate from '../makeElementFromTmeplate';
-import initialGame from '../game';
 import timer from '../timer';
 
 export default class GameLevelView extends AbstractView {
-  constructor(game = initialGame) {
+  constructor(game) {
     super();
     this.game = game;
     this.level = game.levels[game.questions[game.currentQuestion].level];

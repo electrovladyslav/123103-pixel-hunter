@@ -1,6 +1,6 @@
 import StatsView from './StatsView';
 
-const stats = new StatsView();
-
-
-export default () => stats.element;
+export default (game) => {
+  const stats = new StatsView(game);
+  return stats.element;
+};

@@ -1,9 +1,9 @@
 import AbstractView from '../AbstractView';
 import calculateResults from '../calculateResults';
-import initialGame from '../game';
+// import initialGame from '../game';
 
 export default class RulesView extends AbstractView {
-  constructor(game = initialGame) {
+  constructor(game) {
     super();
     this.game = game;
   }
