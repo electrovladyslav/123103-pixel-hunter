@@ -3,5 +3,5 @@ export default (state, result) => {
   newStats.push(result);
   return Object.assign({}, state, {
     stats: newStats
-  })
+  });
 };

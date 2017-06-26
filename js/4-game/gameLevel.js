@@ -26,7 +26,7 @@ export default (state) => {
     gameLevel.switchToNextLevel(newState);
   };
 
-  gameLevel.startTime = (state) => {
+  gameLevel.startTime = (currentState) => {
     gameLevel.timerContainer = gameLevel.element.querySelector(`.game__timer`);
     gameLevel.time = constant.TIME;
 
@@ -34,7 +34,7 @@ export default (state) => {
       gameLevel.time--;
 
       if (gameLevel.time <= 0) {
-        let newState = state;
+        let newState = currentState;
         newState = addResultToState(newState, `wrong`);
         newState = decreaseLife(newState);
         gameLevel.switchToNextLevel(newState);
@@ -52,4 +52,4 @@ export default (state) => {
   gameLevel.startTime(state);
 
   return gameLevel.element;
-}
+};

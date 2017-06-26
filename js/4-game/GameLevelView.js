@@ -54,7 +54,6 @@ export default class GameLevelView extends AbstractView {
   }
 
   bind() {
-    
 
     this.container = document.querySelector(`main`);
     const radio = this.element.querySelectorAll(`input`);
@@ -107,7 +106,7 @@ export default class GameLevelView extends AbstractView {
   }
 
   /**
-   * 
+   * Event of choosing all answers
    * @param {Array} chosenAnswers
    * @param {Array} rightAnswers
    */
