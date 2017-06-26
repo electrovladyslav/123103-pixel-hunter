@@ -1,10 +1,11 @@
 import AbstractView from '../AbstractView';
-import timer from '../timer';
+import gameLevel from './gameLevel';
+import showScreen from '../misc/functions/showScreen';
 
 export default class GameLevelView extends AbstractView {
   constructor(state) {
     super();
-    this.game = state;
+    this.state = state;
     this.level = state.levels[state.questions[state.currentQuestion].level];
   }
 
@@ -12,10 +13,10 @@ export default class GameLevelView extends AbstractView {
     return `
 <div class="game">
   <div class="game__lives">
-      ${new Array(this.game.lives).fill(`<span class="game__live game__live--full"></span>`).join(``)}
-      ${new Array(3 - this.game.lives).fill(`<span class="game__live game__live--empty"></span>`).join(``)}
+      ${new Array(this.state.lives).fill(`<span class="game__live game__live--full"></span>`).join(``)}
+      ${new Array(3 - this.state.lives).fill(`<span class="game__live game__live--empty"></span>`).join(``)}
   </div>
-  <p class="game__timer">${this.game.questions[this.game.currentQuestion].time}</p>
+  <p class="game__timer">${this.state.questions[this.state.currentQuestion].time}</p>
   <p class="game__task">${this.level.task}</p>
     
   <form class="game__content ${this.level.contentWide}">
@@ -42,10 +43,10 @@ export default class GameLevelView extends AbstractView {
   </form>
   <div class="stats">
     <ul class="stats">
-      ${this.game.stats.map((statsItem) => {
+      ${this.state.stats.map((statsItem) => {
         return `<li class="stats__result stats__result--${statsItem}"></li>`;
       }).join(``)}
-        ${new Array(10 - this.game.stats.length).fill(`<li class="stats__result stats__result--unknown">`).join(``)}
+        ${new Array(10 - this.state.stats.length).fill(`<li class="stats__result stats__result--unknown">`).join(``)}
     </ul>
   </div>
 </div>
@@ -53,8 +54,7 @@ export default class GameLevelView extends AbstractView {
   }
 
   bind() {
-    const timerContainer = this.element.querySelector(`.game__timer`);
-    const timerId = timer(timerContainer, this.game);
+    
 
     this.container = document.querySelector(`main`);
     const radio = this.element.querySelectorAll(`input`);
@@ -63,7 +63,6 @@ export default class GameLevelView extends AbstractView {
         [...radio].forEach((item) => {
           item.onchange = (event) => {
             event.preventDefault();
-            clearInterval(timerId);
             this.onChooseAnswers([event.target.value]
               , [this.level.options[0].rightAnswer]);
           };
@@ -85,7 +84,6 @@ export default class GameLevelView extends AbstractView {
                 }
               });
 
-              clearInterval(timerId);
               this.onChooseAnswers(checkedRadio
                 , [this.level.options[0].rightAnswer, this.level.options[1].rightAnswer]);
             }
@@ -100,7 +98,6 @@ export default class GameLevelView extends AbstractView {
           item.addEventListener(`click`, (event) => {
             event.preventDefault();
 
-            clearInterval(timerId);
             this.onChooseAnswers([this.level.options[itemNumber].rightAnswer]
               , [this.level.toFind]);
           });
@@ -110,17 +107,16 @@ export default class GameLevelView extends AbstractView {
   }
 
   /**
-   * Return chosed answers and right anwers
-   * @param {Array} checkedAnswers
+   * 
+   * @param {Array} chosenAnswers
    * @param {Array} rightAnswers
-   * @param {Number} timeLeft
    */
-  onChooseAnswers(checkedAnswers, rightAnswers, timeLeft) {
+  onChooseAnswers(chosenAnswers, rightAnswers) {
 
   }
 
-  switchNextLevel(state) {
-    showScreen(this.container, state(Object.assign({}, newState, {
+  switchToNextLevel(state) {
+    showScreen(this.container, gameLevel(Object.assign({}, state, {
       currentQuestion: state.currentQuestion + 1
     })));
   }

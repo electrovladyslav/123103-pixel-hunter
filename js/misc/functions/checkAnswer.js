@@ -1,4 +1,4 @@
-import constants from './constants';
+import constants from '../objects/constants';
 const {FAST_TIME, SLOW_TIME} = constants;
 /**
  * Checks answer and returns 'correct', 'wrong', 'fast' or 'slow'

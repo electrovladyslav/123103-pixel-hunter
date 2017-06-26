@@ -1,4 +1,4 @@
-import showScreen from '../showScreen';
+import showScreen from '../misc/functions/showScreen';
 import GreetingView from './GreetingView';
 import nextModule from '../3-rules/rules';
 import moduleFooter from '../footer/footer';

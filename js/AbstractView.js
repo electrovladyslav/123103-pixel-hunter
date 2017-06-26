@@ -1,4 +1,4 @@
-import makeElementFromTemplate from './makeElementFromTmeplate';
+import makeElementFromTemplate from './misc/functions/makeElementFromTmeplate';
 
 export default class AbstractView {
   get template() {

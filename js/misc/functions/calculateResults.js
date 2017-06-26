@@ -1,4 +1,4 @@
-import CONSTANTS from './constants';
+import CONSTANTS from '../objects/constants';
 
 export default (game) => {
   if ((game.stats === void 0) || (game.lives === void 0)) {

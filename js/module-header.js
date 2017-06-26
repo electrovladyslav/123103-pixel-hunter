@@ -1,7 +1,7 @@
-import makeElementFromTemplate from './makeElementFromTmeplate.js';
+import makeElementFromTemplate from './misc/functions/makeElementFromTmeplate.js';
 import startModule from './module-2-greeting';
 import moduleFooter from './module-footer';
-import showScreen from './showScreen';
+import showScreen from './misc/functions/showScreen';
 
 const moduleHeader = () => {
   let node = makeElementFromTemplate(`

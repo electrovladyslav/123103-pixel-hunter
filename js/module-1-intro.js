@@ -1,5 +1,5 @@
-import makeElementFromTemplate from './makeElementFromTmeplate.js';
-import showScreen from './showScreen';
+import makeElementFromTemplate from './misc/functions/makeElementFromTmeplate.js';
+import showScreen from './misc/functions/showScreen';
 import nextModule from './module-2-greeting';
 import moduleFooter from './module-footer';
 

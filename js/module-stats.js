@@ -1,4 +1,4 @@
-import makeElementFromTemplate from './makeElementFromTmeplate.js';
+import makeElementFromTemplate from './misc/functions/makeElementFromTmeplate.js';
 import statsLevelTemplate from './statsLevelTemplate';
 
 const moduleElement = (game) => {

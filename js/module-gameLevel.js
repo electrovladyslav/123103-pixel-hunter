@@ -1,8 +1,8 @@
-import makeElementFromTemplate from './makeElementFromTmeplate.js';
-import showScreen from './showScreen';
+import makeElementFromTemplate from './misc/functions/makeElementFromTmeplate.js';
+import showScreen from './misc/functions/showScreen';
 import moduleStats from './module-stats';
 import gameLevelTemplate from './gameLevelTemlate';
-import checkAnswer from './checkAnswer';
+import checkAnswer from './misc/functions/checkAnswer';
 import timer from './timer';
 
 const moduleElement = (game) => {

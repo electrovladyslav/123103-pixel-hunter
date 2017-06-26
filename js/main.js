@@ -1,4 +1,4 @@
-import showScreen from './showScreen';
+import showScreen from './misc/functions/showScreen';
 import nextModule from './1-intro/intro';
 import footer from './footer/footer';
 

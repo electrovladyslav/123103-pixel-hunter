@@ -1,4 +1,4 @@
-import calculateResults from './calculateResults';
+import calculateResults from './misc/functions/calculateResults';
 
 export default (game) => {
 
