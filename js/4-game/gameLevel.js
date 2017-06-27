@@ -1,4 +1,4 @@
-import GameLevelView from './GameLevelView';
+import GameLevelView from './GamelView';
 import finalModule from '../5-final/final';
 
 import checkAnswers from '../misc/functions/checkAnswer';

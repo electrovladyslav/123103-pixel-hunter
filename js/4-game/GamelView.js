@@ -54,17 +54,16 @@ export default class GameLevelView extends AbstractView {
   }
 
   bind() {
-
     this.container = document.querySelector(`main`);
     const radio = this.element.querySelectorAll(`input`);
     switch (this.level.options.length) {
       case 1: // one picture
         [...radio].forEach((item) => {
-          item.onchange = (event) => {
+          item.addEventListener(`change`, (event) => {
             event.preventDefault();
             this.onChooseAnswers([event.target.value]
               , [this.level.options[0].rightAnswer]);
-          };
+          });
         });
         break;
 

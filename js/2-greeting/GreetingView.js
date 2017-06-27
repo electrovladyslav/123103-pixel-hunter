@@ -1,6 +1,11 @@
 import AbstractView from '../AbstractView';
 
 export default class GreetingView extends AbstractView {
+  constructor() {
+    super();
+    this.container = document.querySelector(`.central`);
+  }
+
   get template() {
     return `
 <main class="central__content">
@@ -22,7 +27,6 @@ export default class GreetingView extends AbstractView {
   }
 
   bind() {
-    this.container = document.querySelector(`.central`);
     const nextTrigger = this.element.querySelector(`.greeting__continue`);
     nextTrigger.addEventListener(`click`, () => {
       this.switchToNextScreen();
