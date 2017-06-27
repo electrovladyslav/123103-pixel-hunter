@@ -9,10 +9,10 @@ class GreetingScreen {
   }
 
   init() {
-    showScreen(this.view.container, this.view.element, footer());
+    showScreen(this.view.element, footer());
 
     this.view.switchToNextScreen = () => {
-      App.showGame();
+      App.showRules();
     };
   }
 }

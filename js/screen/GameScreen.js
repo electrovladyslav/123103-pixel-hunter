@@ -9,7 +9,7 @@ export default class GameScreen {
   }
 
   init() {
-    showScreen(this.container, this.view);
+    showScreen(this.view.element);
 
     this.view.onSwitchToNextLevel = () => {
       App.showGame();

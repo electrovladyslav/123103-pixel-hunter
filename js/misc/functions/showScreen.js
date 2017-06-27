@@ -1,5 +1,5 @@
 /**
- * Clear element .main on page and render input element inside
+ * Clear element .central on page and render input elements inside
  *
  * @param {Node} element DOM node to render
  * @param {Node} restElements other elements to insert

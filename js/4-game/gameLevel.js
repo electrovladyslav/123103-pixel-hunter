@@ -1,6 +1,5 @@
 import GameLevelView from './GamelView';
 import finalModule from '../5-final/final';
-
 import checkAnswers from '../misc/functions/checkAnswer';
 import decreaseLife from '../misc/functions/decreaseLife';
 import addResultToState from '../misc/functions/addResultToStats';
