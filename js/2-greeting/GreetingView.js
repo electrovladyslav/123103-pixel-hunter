@@ -1,5 +1,4 @@
 import AbstractView from '../AbstractView';
-import constants from '../misc/objects/constants';
 
 export default class GreetingView extends AbstractView {
   get template() {
@@ -23,7 +22,6 @@ export default class GreetingView extends AbstractView {
   }
 
   bind() {
-    this.container = constants.DOM_CENTRAL;
     const nextTrigger = this.element.querySelector(`.greeting__continue`);
     nextTrigger.addEventListener(`click`, () => {
       this.switchToNextScreen();

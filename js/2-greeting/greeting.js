@@ -6,7 +6,7 @@ import moduleHeader from '../header/header';
 
 const greeting = new GreetingView();
 greeting.switchToNextScreen = () => {
-  showScreen(greeting.container, moduleHeader(), nextModule(), moduleFooter());
+  showScreen(moduleHeader(), nextModule(), moduleFooter());
 };
 
 export default () => greeting.element;

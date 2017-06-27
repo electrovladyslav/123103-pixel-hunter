@@ -6,7 +6,7 @@ import moduleFooter from '../footer/footer';
 
 const intro = new IntroView();
 intro.switchToNextScreen = () => {
-  showScreen(intro.container, nextModule(), moduleFooter());
+  showScreen(nextModule(), moduleFooter());
 };
 
 export default () => intro.element;
