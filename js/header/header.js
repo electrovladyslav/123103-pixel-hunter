@@ -6,7 +6,7 @@ import moduleFooter from '../footer/footer';
 
 const header = new HeaderView();
 header.backToStart = () => {
-  showScreen(header.container, startModule(), moduleFooter());
+  showScreen(startModule(), moduleFooter());
 };
 
 export default () => header.element;

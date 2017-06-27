@@ -15,7 +15,6 @@ export default class IntroView extends AbstractView {
   }
 
   bind() {
-    this.container = document.querySelector(`.central`);
     const backTrigger = this.element.querySelector(`.back`);
     backTrigger.addEventListener(`click`, () => {
       this.backToStart();

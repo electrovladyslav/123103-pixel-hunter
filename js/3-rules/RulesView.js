@@ -25,7 +25,6 @@ export default class RulesView extends AbstractView {
   }
 
   bind() {
-    this.container = this.element.querySelector(`main`);
     const nextTrigger = this.element.querySelector(`.rules__form`);
 
     nextTrigger.addEventListener(`submit`, () => {
