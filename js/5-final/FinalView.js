@@ -2,9 +2,9 @@ import AbstractView from '../AbstractView';
 import calculateResults from '../misc/functions/calculateResults';
 
 export default class RulesView extends AbstractView {
-  constructor(game) {
+  constructor(state) {
     super();
-    this.game = game;
+    this.state = state;
   }
 
   get template() {
@@ -50,14 +50,14 @@ export default class RulesView extends AbstractView {
       return table;
     };
 
-    const result = calculateResults(this.game);
+    const result = calculateResults(this.state);
     let template = `
     <div class="result">
       <h1>${result.header}</h1>`;
 
     template += makeTable(result)
-      + makeTable(calculateResults(this.game.prevGamesResults[0]))
-      + makeTable(calculateResults(this.game.prevGamesResults[1]))
+      + makeTable(calculateResults(this.state.prevGamesResults[0]))
+      + makeTable(calculateResults(this.state.prevGamesResults[1]))
       + `</div>`;
     return template;
   }
