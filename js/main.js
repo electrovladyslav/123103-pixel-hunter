@@ -1,7 +1,5 @@
-import showScreen from './showScreen';
-import nextModule from './module-1-intro';
-import moduleFooter from './module-footer';
+import showScreen from './misc/functions/showScreen';
+import nextModule from './1-intro/intro';
+import footer from './footer/footer';
 
-const central = document.querySelector(`.central`);
-showScreen(central, nextModule(), moduleFooter());
-
+showScreen(nextModule(), footer());
