@@ -1,4 +1,5 @@
 import AbstractView from '../AbstractView';
+import constants from '../misc/objects/constants';
 
 export default class IntroView extends AbstractView {
   get template() {
@@ -14,7 +15,7 @@ export default class IntroView extends AbstractView {
 
   bind() {
     const nextTrigger = this.element.querySelector(`.intro__asterisk`);
-    this.container = document.querySelector(`.central`);
+    this.container = constants.DOM_CENTRAL;
     nextTrigger.addEventListener(`click`, () => {
       this.switchToNextScreen();
     });

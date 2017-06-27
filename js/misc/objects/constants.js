@@ -7,5 +7,6 @@ export default {
   RIGHT_FACTOR: 100,
   FAST_FACTOR: 50,
   SLOW_FACTOR: -50,
-  LIVES_FACTOR: 50
+  LIVES_FACTOR: 50,
+  DOM_CENTRAL: document.querySelector(`.central`)
 };

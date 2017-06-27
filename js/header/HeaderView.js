@@ -1,4 +1,5 @@
 import AbstractView from '../AbstractView';
+import constants from '../misc/objects/constants';
 
 export default class IntroView extends AbstractView {
   get template() {
@@ -15,7 +16,7 @@ export default class IntroView extends AbstractView {
   }
 
   bind() {
-    this.container = document.querySelector(`.central`);
+    this.container = constants.DOM_CENTRAL;
     const backTrigger = this.element.querySelector(`.back`);
     backTrigger.addEventListener(`click`, () => {
       this.backToStart();
