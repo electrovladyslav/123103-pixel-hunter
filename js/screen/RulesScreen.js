@@ -13,7 +13,7 @@ class RulesScreen {
     showScreen(header(), this.view.element, footer());
 
     this.view.switchToNextScreen = () => {
-      App.showGame();
+      App.startGame();
     };
   }
 }

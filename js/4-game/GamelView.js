@@ -1,8 +1,4 @@
 import AbstractView from '../AbstractView';
-import gameLevel from './gameLevel';
-import showScreen from '../misc/functions/showScreen';
-import moduleFooter from '../footer/footer';
-import moduleHeader from '../header/header';
 
 export default class GameLevelView extends AbstractView {
   constructor(state) {
@@ -115,13 +111,5 @@ export default class GameLevelView extends AbstractView {
    */
   onChooseAnswers(chosenAnswers, rightAnswers) {
 
-  }
-
-  switchToNextLevel(state) {
-    showScreen(moduleHeader()
-      , gameLevel(Object.assign({}, state, {
-        currentQuestion: state.currentQuestion + 1
-      }))
-      , moduleFooter());
   }
 }

@@ -1,12 +1,10 @@
-import showScreen from '../misc/functions/showScreen';
 import HeaderView from './HeaderView';
-import startModule from '../2-greeting/greeting';
-import moduleFooter from '../footer/footer';
+import App from '../App';
 
 
 const header = new HeaderView();
 header.backToStart = () => {
-  showScreen(startModule(), moduleFooter());
+  App.backToStart();
 };
 
 export default () => header.element;

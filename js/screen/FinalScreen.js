@@ -1,18 +1,16 @@
 import FinalView from '../5-final/FinalView';
-import App from '../App';
 import showScreen from '../misc/functions/showScreen';
+import footer from '../footer/footer';
+import header from '../header/header';
 
-export default class GameScreen {
-  constructor(state) {
-    this.state = state;
-    this.view = new FinalView(state);
+class GameScreen {
+  constructor() {
   }
 
-  init() {
-    showScreen(this.container, this.view);
-
-    this.view.onSwitchToNextLevel = () => {
-      App.showGame();
-    };
+  init(state) {
+    this.view = new FinalView(state);
+    showScreen(header(), this.view.element, footer());
   }
 }
+
+export default new GameScreen();

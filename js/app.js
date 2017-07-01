@@ -1,7 +1,9 @@
 import introScreen from './screen/IntroScreen';
 import greetingScreen from './screen/GreetingScreen';
-import newGameScreen from './screen/GameScreen';
+import rulesScreen from './screen/RulesScreen';
+import GameScreen from './screen/GameScreen';
 import finalScreen from './screen/FinalScreen';
+import initialState from './misc/objects/initialState';
 
 export default class Application {
 
@@ -13,8 +15,19 @@ export default class Application {
     greetingScreen.init();
   }
 
-  static showGame() {
-    newGameScreen.init();
+  static showRules() {
+    rulesScreen.init();
+  }
+
+  static startGame() {
+    this.game = new GameScreen();
+    this.game.init(initialState);
+  }
+
+  static backToStart() {
+    this.game.stopGame();
+    this.game = null;
+    this.showGreeting();
   }
 
   static showStats(stats) {
