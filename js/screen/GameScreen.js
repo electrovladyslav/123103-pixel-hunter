@@ -1,4 +1,4 @@
-import GameView from '../4-game/GamelView';
+import GameView from '../view/GamelView';
 import App from '../App';
 import footer from '../footer/footer';
 import header from '../header/header';

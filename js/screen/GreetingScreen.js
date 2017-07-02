@@ -1,4 +1,4 @@
-import GreetingView from '../2-greeting/GreetingView';
+import GreetingView from '../view/GreetingView';
 import App from '../App';
 import footer from '../footer/footer';
 import showScreen from '../misc/functions/showScreen';

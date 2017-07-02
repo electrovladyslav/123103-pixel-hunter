@@ -1,4 +1,4 @@
-import IntroView from '../1-intro/IntroView';
+import IntroView from '../view/IntroView';
 import App from '../App';
 import footer from '../footer/footer';
 import showScreen from '../misc/functions/showScreen';

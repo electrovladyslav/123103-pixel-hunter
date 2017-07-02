@@ -1,4 +1,4 @@
-import FinalView from '../5-final/FinalView';
+import FinalView from '../view/FinalView';
 import showScreen from '../misc/functions/showScreen';
 import footer from '../footer/footer';
 import header from '../header/header';

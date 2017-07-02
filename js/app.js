@@ -25,8 +25,10 @@ export default class Application {
   }
 
   static backToStart() {
-    this.game.stopGame();
-    this.game = null;
+    if (this.game) {
+      this.game.stopGame();
+      this.game = null;
+    }
     this.showGreeting();
   }
 
