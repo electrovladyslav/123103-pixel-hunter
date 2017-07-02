@@ -4,8 +4,6 @@ import footer from '../footer/footer';
 import header from '../header/header';
 
 class GameScreen {
-  constructor() {
-  }
 
   init(state) {
     this.view = new FinalView(state);

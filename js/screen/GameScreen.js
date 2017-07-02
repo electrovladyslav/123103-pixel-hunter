@@ -3,7 +3,6 @@ import App from '../App';
 import footer from '../footer/footer';
 import header from '../header/header';
 import constants from '../misc/objects/constants';
-// import initialState from '../misc/objects/initialState';
 import addResultToState from '../misc/functions/addResultToStats';
 import decreaseLife from '../misc/functions/decreaseLife';
 import increaseLevel from '../misc/functions/increaseLevel';
@@ -28,6 +27,16 @@ export default class GameScreen {
 
       this.switchToNextLevel(newState);
     };
+  }
+
+  switchToNextLevel(state) {
+    const newState = increaseLevel(state);
+    if ((newState.lives <= 0)
+      || (newState.currentQuestion >= newState.questions.length)) {
+      App.showStats(newState);
+    } else {
+      this.init(newState);
+    }
   }
 
   startTime(currentState) {
@@ -60,16 +69,4 @@ export default class GameScreen {
   stopGame() {
     this.stopTime();
   }
-
-  switchToNextLevel(state) {
-    const newState = increaseLevel(state);
-    if ((!newState.questions[newState.currentQuestion])
-      || (newState.lives <= 0)) {
-      App.showStats(newState);
-    } else {
-      this.init(newState);
-    }
-  }
 }
-
-// export default new GameScreen();

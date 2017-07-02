@@ -1,11 +1,6 @@
 import AbstractView from '../AbstractView';
 
 export default class IntroView extends AbstractView {
-  constructor() {
-    super();
-    this.container = document.querySelector(`.central`);
-  }
-
   get template() {
     return `
 <main class="central__content">
