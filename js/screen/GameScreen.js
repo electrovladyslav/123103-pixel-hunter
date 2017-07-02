@@ -1,5 +1,5 @@
 import GameView from '../view/GamelView';
-import App from '../App';
+import app from '../main';
 import footer from '../footer/footer';
 import header from '../header/header';
 import constants from '../misc/objects/constants';
@@ -33,7 +33,7 @@ export default class GameScreen {
     const newState = increaseLevel(state);
     if ((newState.lives <= 0)
       || (newState.currentQuestion >= newState.questions.length)) {
-      App.showStats(newState);
+      app.showStats(newState);
     } else {
       this.init(newState);
     }

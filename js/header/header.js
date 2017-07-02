@@ -1,10 +1,10 @@
 import HeaderView from './HeaderView';
-import App from '../App';
+import app from '../main';
 
 
 const header = new HeaderView();
 header.backToStart = () => {
-  App.backToStart();
+  app.backToStart();
 };
 
 export default () => header.element;

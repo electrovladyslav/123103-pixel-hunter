@@ -1,5 +1,5 @@
 import IntroView from '../view/IntroView';
-import App from '../App';
+import app from '../main';
 import footer from '../footer/footer';
 import showScreen from '../misc/functions/showScreen';
 
@@ -12,7 +12,7 @@ class IntroScreen {
     showScreen(this.view.element, footer());
 
     this.view.switchToNextScreen = () => {
-      App.showGreeting();
+      app.showGreeting();
     };
   }
 }

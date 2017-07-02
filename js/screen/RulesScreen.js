@@ -1,5 +1,5 @@
 import RulesView from '../view/RulesView';
-import App from '../App';
+import app from '../main';
 import footer from '../footer/footer';
 import header from '../header/header';
 import showScreen from '../misc/functions/showScreen';
@@ -13,7 +13,7 @@ class RulesScreen {
     showScreen(header(), this.view.element, footer());
 
     this.view.switchToNextScreen = () => {
-      App.startGame();
+      app.startGame();
     };
   }
 }

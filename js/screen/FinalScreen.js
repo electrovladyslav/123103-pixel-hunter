@@ -3,7 +3,7 @@ import showScreen from '../misc/functions/showScreen';
 import footer from '../footer/footer';
 import header from '../header/header';
 
-class GameScreen {
+class FinalScreen {
 
   init(state) {
     this.view = new FinalView(state);
@@ -11,4 +11,4 @@ class GameScreen {
   }
 }
 
-export default new GameScreen();
+export default new FinalScreen();

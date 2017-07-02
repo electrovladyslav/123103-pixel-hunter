@@ -1,3 +1,6 @@
-import App from './App';
+import App from './app';
 
-App.showIntro();
+const app = new App();
+app.showIntro();
+
+export default app;
