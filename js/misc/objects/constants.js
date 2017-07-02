@@ -10,7 +10,7 @@ export default {
   LIVES_FACTOR: 50,
   INTRO_URL: ``,
   GREETING_URL: `#greeting`,
-  RULES_URL: `rules`,
-  GAME_URL: `game`,
-  STATS_URL: `stats`
+  RULES_URL: `#rules`,
+  GAME_URL: `#game`,
+  STATS_URL: `#stats`
 };

@@ -16,29 +16,45 @@ export default class Application {
     };
   }
 
+  init() {
+    this.changeController(location.hash);
+  }
+
   changeController(route = ``) {
-    window.alert(route);
+    switch (route) {
+      case constant.INTRO_URL:
+        introScreen.init();
+        break;
+      case constant.GREETING_URL:
+        greetingScreen.init();
+        break;
+      case constant.RULES_URL:
+        rulesScreen.init();
+        break;
+      case constant.GAME_URL:
+        this.game = new GameScreen();
+        this.game.init(initialState);
+        break;
+      case constant.STATS_URL:
+        finalScreen.init(this.finalStats);
+        break;
+    }
   }
 
   showIntro() {
     location.hash = constant.INTRO_URL;
-    introScreen.init();
   }
 
   showGreeting() {
     location.hash = constant.GREETING_URL;
-    greetingScreen.init();
   }
 
   showRules() {
     location.hash = constant.RULES_URL;
-    rulesScreen.init();
   }
 
   startGame() {
     location.hash = constant.GAME_URL;
-    this.game = new GameScreen();
-    this.game.init(initialState);
   }
 
   backToStart() {
@@ -51,8 +67,8 @@ export default class Application {
   }
 
   showStats(stats) {
+    this.finalStats = stats;
     location.hash = constant.STATS_URL;
-    finalScreen.init(stats);
   }
 
 }
