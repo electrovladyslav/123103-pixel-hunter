@@ -3,14 +3,15 @@ import app from '../main';
 import footer from '../footer/footer';
 import header from '../header/header';
 import constants from '../misc/objects/constants';
+import initialState from '../misc/objects/initialState';
 import addResultToState from '../misc/functions/addResultToStats';
 import decreaseLife from '../misc/functions/decreaseLife';
 import increaseLevel from '../misc/functions/increaseLevel';
 import checkAnswer from '../misc/functions/checkAnswer';
 import showScreen from '../misc/functions/showScreen';
 
-export default class GameScreen {
-  init(state) {
+class GameScreen {
+  init(state = initialState) {
     this.state = state;
     this.view = new GameView(state);
     showScreen(header(), this.view.element, footer());
@@ -70,3 +71,5 @@ export default class GameScreen {
     this.stopTime();
   }
 }
+
+export default new GameScreen();

@@ -1,7 +1,14 @@
 import CONSTANTS from '../objects/constants';
-
+/**
+ * Convert input object to object for final rendering
+ * @param {Object} game with fields stats and lives
+ * @return {{stats: (*|Array), correct: {name: string, quantity: number, factor: number, points: number}, bonuses: {fast: {name: string, icon: string, quantity: number, factor: number, points: number}, lives: {name: string, icon: string, quantity: (result.bonuses.lives|{name, icon, quantity, factor, points}|*|number), factor: number, points: number}, slow: {name: string, icon: string, quantity: number, factor: *, points: number}}, totalPoints: number}}
+ */
 export default (game) => {
-  if ((game.stats === void 0) || (game.lives === void 0)) {
+  if ((game === void 0)
+    || (game.stats === void 0)
+    || (game.lives === void 0)
+    ) {
     throw new Error(`Empty data`);
   }
 

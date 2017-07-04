@@ -1,60 +1,70 @@
 import introScreen from './screen/IntroScreen';
 import greetingScreen from './screen/GreetingScreen';
 import rulesScreen from './screen/RulesScreen';
-import GameScreen from './screen/GameScreen';
+import gameScreen from './screen/GameScreen';
 import finalScreen from './screen/FinalScreen';
-import initialState from './misc/objects/initialState';
-import constant from './misc/objects/constants';
+
+import ControllerID from './misc/objects/controllerID';
+import replaceHashSymbol from './misc/functions/replaceHashSymbol';
+import encodeStats from './misc/functions/encodeStats';
+import decodeStats from './misc/functions/decodeStats';
 
 export default class Application {
   constructor() {
     this.routes = {
-
+      [ControllerID.INTRO]: introScreen,
+      [ControllerID.GREETING]: greetingScreen,
+      [ControllerID.RULES]: rulesScreen,
+      [ControllerID.GAME]: gameScreen,
+      [ControllerID.STATS]: finalScreen
     };
     window.onhashchange = () => {
-      this.changeController(location.hash);
+      this.changeController(replaceHashSymbol(location.hash));
     };
   }
 
   init() {
-    this.changeController(location.hash);
+    this.changeController(replaceHashSymbol(location.hash));
   }
 
   changeController(route = ``) {
+    if (route.indexOf(ControllerID.STATS) !== -1) {
+      this.gameResult = {
+        stats: decodeStats(route.slice(route.indexOf(`=`) + 1)),
+        lives: 3
+      };
+      route = ControllerID.STATS;
+    }
+
+    const Controller = this.routes[route];
+
     switch (route) {
-      case constant.INTRO_URL:
-        introScreen.init();
+      case ControllerID.GAME:
+        this.game = Controller;
+        this.game.init();
         break;
-      case constant.GREETING_URL:
-        greetingScreen.init();
+      case ControllerID.STATS:
+        Controller.init(this.gameResult);
         break;
-      case constant.RULES_URL:
-        rulesScreen.init();
-        break;
-      case constant.GAME_URL:
-        this.game = new GameScreen();
-        this.game.init(initialState);
-        break;
-      case constant.STATS_URL:
-        finalScreen.init(this.finalStats);
-        break;
+      default:
+        Controller.init();
     }
   }
 
   showIntro() {
-    location.hash = constant.INTRO_URL;
+    location.hash = ControllerID.INTRO;
   }
 
   showGreeting() {
-    location.hash = constant.GREETING_URL;
+    location.hash = ControllerID.GREETING;
   }
 
   showRules() {
-    location.hash = constant.RULES_URL;
+    location.hash = ControllerID.RULES;
   }
 
   startGame() {
-    location.hash = constant.GAME_URL;
+    location.hash = ControllerID.GAME;
   }
 
   backToStart() {
@@ -62,13 +72,14 @@ export default class Application {
       this.game.stopGame();
       this.game = null;
     }
-    location.hash = constant.GREETING_URL;
+    location.hash = ControllerID.GREETING;
     this.showGreeting();
   }
 
-  showStats(stats) {
-    this.finalStats = stats;
-    location.hash = constant.STATS_URL;
+  showStats(state) {
+    this.state = state;
+    const stats = encodeStats(state.stats);
+    location.hash = ControllerID.STATS + `=` + stats;
   }
 
 }
