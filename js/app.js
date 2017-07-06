@@ -29,10 +29,7 @@ export default class Application {
 
   changeController(route = ``) {
     if (route.indexOf(ControllerID.STATS) !== -1) {
-      this.gameResult = {
-        stats: decodeStats(route.slice(route.indexOf(`=`) + 1)),
-        lives: 3
-      };
+      this.gameResult = decodeStats(route.slice(route.indexOf(`=`) + 1));
       route = ControllerID.STATS;
     }
 
@@ -78,7 +75,7 @@ export default class Application {
 
   showStats(state) {
     this.state = state;
-    const stats = encodeStats(state.stats);
+    const stats = encodeStats(state);
     location.hash = ControllerID.STATS + `=` + stats;
   }
 

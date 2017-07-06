@@ -1,18 +1,21 @@
 /**
  * Convert number string to stats array
  * @param {String} str sting
- * @return {Array} stats
+ * @return {Object} state
  */
 export default (str) => {
+  const resultObj = {
+    lives: str[0],
+    stats: []
+  };
   const decodeArr = [`wrong`, `correct`, `fast`, `slow`, `unknown`];
-  let resultArr = [];
-  const strArr = str.split(``);
-  strArr.forEach((digit) => {
-    if (decodeArr[digit] !== void 0) {
-      resultArr.push(decodeArr[digit]);
+  const statsCodes = str.slice(1).split(``);
+  statsCodes.forEach((stat) => {
+    if (decodeArr[stat] !== void 0) {
+      resultObj.stats.push(decodeArr[stat]);
     } else {
       throw new Error(`Wrong input data`);
     }
   });
-  return resultArr;
+  return resultObj;
 };
